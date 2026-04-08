@@ -13,7 +13,9 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install -r "requirements.txt"
+        run: pip install -r orders_app/requirements.txt
 
       - name: Run integration test with fake
-        run: pytest test_integration_with_fake.py -v 
+        run: |
+         export PYTHONPATH-$GITHUB_WORKSPACE 
+         pytest orders_app/test_integration_with_fake.py -v 
